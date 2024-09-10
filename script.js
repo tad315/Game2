@@ -8,7 +8,7 @@ let level;
 let timeLeft;
 
 // Tạo danh sách các ảnh từ thư mục images
-const allImages = Array.from({ length: 24 }, (_, i) => `images/${i + 1}.png`);
+const allImages = Array.from({ length: 24 }, (_, i) => `./images/${i + 1}.png`);
 
 // Chọn ngẫu nhiên n ảnh từ danh sách ảnh và tạo cặp bài
 const generateCardImages = (numCards) => {
