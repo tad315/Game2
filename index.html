@@ -3,58 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flip the Cards with ITIS - LV1</title>
+    <title>Flip the cards with ITIS</title>
     <link rel="stylesheet" href="style.css">
-
     <link rel="stylesheet" href="https://upkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body>
-    <div class="heading">
-        <ul>
-            <li class="list-items">
-                <a class="list-items" href="https://www.facebook.com/lcdkhoacntt1.ptit">Liên chi Đoàn Khoa CNTT1</a>
-            </li>
-        </ul>
-        <ul class="hlist">
-            <li class="list-items">Pause</li>
-        </ul>
+    <div class="wrapper">
+        <h2>Welcome</h2>
+        <form id="form-nickname">
+            <div class="input-field">
+                <input type="text" id="nickname" placeholder="Nickname" required>
+                <i class="bx bxs-user"></i>
+            </div>
+            <br>
+            <h3>Chọn cấp độ chơi</h3>
+            <div class="level-button-container">
+                <button type="button" id="btn-lv-24" class="level-button" data-url="https://andun315.github.io/gamefliplv24/">
+                    <h4>24 thẻ</h4>
+                </button>
+                <button type="button" id="btn-lv-48" class="level-button" data-url="index3.html">
+                    <h4>48 thẻ</h4>
+                </button>
+            </div>
+        </form>
     </div>
     
-        <div class="inf">
-            <div class="inf-box">
-                <ul>
-                    <li><h3 id="level">Level: 24 thẻ</h3></li>
-                    <li><h3 id="nickname">Nickname:</h3> </li>
-                </ul>
-            </div>
-            <div class="inf-box">
-                <ul>
-                    <li><h3 id="score">Score: 0</h3></li>
-                    <li><h3 id="time">Time: 150s</h3></li>
-                </ul>
-            </div>
-        </div>
-        
-    
-         <div class="game-container"></div>
-    <div class="card">
-    <div class="card-inner">
-        <div class="card-front"></div>
-        <div class="card-back" style="background-image: url('./images/1.png');"></div>
-    </div>
-</div>
-
-    <div id="end-game" class="end-game hidden">
-        <p id="final-score"></p>
-        <button id="restart-btn">Play Again</button>
-    </div>
-
-    <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const level = 24; // Change this to 48 for the other level
-            initializeGame(level);
+        document.querySelectorAll('.level-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const nicknameInput = document.getElementById('nickname');
+                const nickname = nicknameInput.value.trim();
+
+                if (nickname === '') {
+                    alert('Please enter your nickname.');
+                    return;
+                }
+
+                const url = button.getAttribute('data-url');
+                if (url) {
+                    window.location.href = url;
+                }
+            });
         });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
